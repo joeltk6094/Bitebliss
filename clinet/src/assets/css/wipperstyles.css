@@ -1,0 +1,13 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    min-width: 340px;
+  }  
+
+  .mySwiper {
+    height: 400px; /* Set your desired height */
+  }
+  
