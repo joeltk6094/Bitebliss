@@ -9,7 +9,7 @@ const app = express();
 
 // body parser for our JSON data
 app.use(express.json());
-app.use(morgan("dev"))
+app.use(morgan("dev"));
 // Enable CORS
 // const cors = require("cors");
 // app.use(cors({origin: true}));

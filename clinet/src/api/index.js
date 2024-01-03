@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://bitebliss.shop/cockie-44bc1/us-central1/app";
+export const baseURL = "https://us-central1-cockie-44bc1.cloudfunctions.net/app";
 
 export const validateUserJWtToken = async (token) => {
   try {

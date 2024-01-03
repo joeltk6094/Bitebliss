@@ -74,7 +74,7 @@
 const router = require("express").Router();
 const admin = require("firebase-admin");
 
-const data = []; 
+const data=[];
 const ListAllUsers = async (nextPageToken) => {
   try {
     const listUserResult = await admin.auth().listUsers(1000, nextPageToken);
