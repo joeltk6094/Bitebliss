@@ -189,7 +189,7 @@ router.post("/create-checkout-session", async (req, res) => {
     },
   });
 
-  const lineItems = req.body.data.cart.map((item) => {
+  const line_items = req.body.data.cart.map((item) => {
     return {
       price_data: {
         currency: "inr",
@@ -222,8 +222,7 @@ router.post("/create-checkout-session", async (req, res) => {
       },
     ],
     phone_number_collection: {enabled: true},
-
-    lineItems,
+    line_items,
     customer: customer.id,
     mode: "payment",
     success_url: `${process.env.CLIENT_URL}/cheakout-success`,
@@ -286,23 +285,23 @@ router.post(
 const createOrder = async (customer, intent, res) => {
   console.log("inside the orderrrrrr");
   try {
-    // const orderId = Date.now();
-    // const data = {
-    //   intentId: intent.id,
-    //   orderId,
-    //   amount: intent.amount_total,
-    //   created: intent.created,
-    //   payment_method_types: intent.payment_method_types,
-    //   status: intent.payment_status,
-    //   customer: intent.customer_details,
-    //   shipping_details: intent.shipping_details,
-    //   userId: customer.metadata.user_id,
-    //   items: JSON.parse(customer.metadata.cart),
-    //   total: customer.metadata.total,
-    //   sts: "preparing",
-    // };
+    const orderId = Date.now();
+    const data = {
+      intentId: intent.id,
+      orderId,
+      amount: intent.amount_total,
+      created: intent.created,
+      payment_method_types: intent.payment_method_types,
+      status: intent.payment_status,
+      customer: intent.customer_details,
+      shipping_details: intent.shipping_details,
+      userId: customer.metadata.user_id,
+      items: JSON.parse(customer.metadata.cart),
+      total: customer.metadata.total,
+      sts: "preparing",
+    };
 
-    // await db.collection("orders").doc(`${orderId}`).set(data);
+    await db.collection("orders").doc(`${orderId}`).set(data);
 
     await deleteCart(
         customer.metadata.user_id,
@@ -367,13 +366,13 @@ router.get("/orders", async (req, res) => {
 
 // update the order status
 router.post("/updateOrder/:order_id", async (req, res) => {
-  const orderId = req.params.order_id;
+  const order_id = req.params.order_id;
   const sts = req.query.sts;
 
   try {
     const updatedItem = await db
         .collection("orders")
-        .doc(`${orderId}`)
+        .doc(`${order_id}`)
         .update({sts});
 
     return res.status(200).send({success: true, data: updatedItem});
@@ -381,5 +380,6 @@ router.post("/updateOrder/:order_id", async (req, res) => {
     return res.send({success: false, msg: `Error: ${err}`});
   }
 });
+
 
 module.exports = router;
