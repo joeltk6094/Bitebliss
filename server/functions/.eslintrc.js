@@ -15,6 +15,7 @@ module.exports = {
     "new-cap": ["error", {"newIsCap": true, "capIsNew": false}],
     "prefer-arrow-callback": "error",
     "quotes": ["error", "double", {"allowTemplateLiterals": true}],
+    "camelcase": "off",
   },
   overrides: [
     {
