@@ -28,10 +28,7 @@ function Home() {
           </p>
 
           <p className="text-lg text-textColor">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
-            velit eaque fugit distinctio est nam voluptatum architecto, porro
-            iusto deserunt recusandae ipsa minus eos sunt, dolores illo repellat
-            facere suscipit!
+          Welcome to Fresh Fruits Express – your hub for swift and sensational fruit deliveries! Savor nature's bounty with the fastest service in town. From farm to table, we bring you handpicked delights, ensuring each bite is a burst of freshness. Elevate your snacking game with us – delivering joy in every box! 🍎🚀
           </p>
 
           <button className="hover:text-white text-orange-500 font-bold py-2 px-4 rounded-full cursor-pointer bg-transparent border border-orange-500 hover:bg-orange-500 hover:border-transparent transition-all ease-in-out duration-300">
