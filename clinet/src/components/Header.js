@@ -35,7 +35,7 @@ function Header() {
       <NavLink to={"/"} className={"flex items-center justify-center gap-4"}>
         <img src={logo} className="w-12" alt="Logo" />
         <p className="font-semibold text-xl hover:text-slate-900 text-slate-700 cursor-pointer bg-transparent">
-          City
+        Bite Bliss
         </p>
       </NavLink>
 
